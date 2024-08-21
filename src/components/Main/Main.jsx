@@ -15,7 +15,7 @@ function Main({ weatherData }) {
           {defaultClothingItems
             //.filter((item) => {
             //  return item.weather === weatherData.type;
-            //  }) commentint out for styling
+            //  }) commentint out for styling, app.jsx set as cold instead of empty string
             .map((item) => {
               return <ItemCard key={item._id} item={item} />;
             })}

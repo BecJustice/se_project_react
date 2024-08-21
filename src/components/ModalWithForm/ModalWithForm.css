@@ -26,6 +26,18 @@
   position: absolute;
   top: 20px;
   right: 28px;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.modal__close:hover {
+  opacity: 60%;
+} /* look this up*/
+
+.modal__close {
+  width: 20px;
+  height: 20px;
 }
 
 .modal__content {
@@ -35,6 +47,7 @@
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
+  border-radius: 20px;
 }
 
 .modal__form {
@@ -45,6 +58,19 @@
 
 .modal__input {
   display: block;
+  margin-top: 8px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  width: 100%;
+  margin: 8px 0 24px 0px;
+  font-weight: 700;
+}
+
+.modal__submit {
+  background: #0000004d;
+  width: 124px;
+  height: 36px;
+  font-weight: 700;
 }
 
 .modal__radio-buttons {
@@ -52,4 +78,12 @@
   padding: 12px 0 32px 0;
   display: flex;
   flex-direction: column;
+}
+
+.modal__legend {
+  font-weight: 700;
+}
+
+.modal__label_type_radio {
+  margin-bottom: 8px;
 }
