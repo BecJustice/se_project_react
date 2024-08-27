@@ -6,16 +6,16 @@ import ItemCard from "../ItemCard/ItemCard";
 function Main({ weatherData, handleCardClick }) {
   return (
     <main>
-      <WeatherCard />
+      <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is 75 &deg; F / You May want to wear:
+          Today is {weatherData.temp.F} &deg; F / You May want to wear:
         </p>
         <ul className="cards__list">
           {defaultClothingItems
             //.filter((item) => {
             //  return item.weather === weatherData.type;
-            //  }) commentint out for styling, app.jsx set as cold instead of empty string
+            // })
             .map((item) => {
               return (
                 <ItemCard
