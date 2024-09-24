@@ -4,12 +4,23 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
   const [name, setName] = useState("");
   console.log(name);
+  const [imageUrl, setUrl] = useState("");
+  const [weather, setSelectedWeatherType] = useState("");
+
+  //need to ad values onchange to url and temp
 
   const handleSubmit = (e) => {
     console.log(values);
     e.preventDefault();
-    onAddItem(values);
+    onAddItem({ name, imageUrl, weather });
+    resetForm();
   };
+
+  function resetForm() {
+    setName("");
+    setUrl("");
+    setSelectedWeatherType("");
+  }
 
   return (
     <ModalWithForm
@@ -36,6 +47,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
           className="modal__input"
           id="imageUrl"
           placeholder="Image URL"
+          onChange={(event) => setUrl(event.target.value)}
         />
       </label>
       <fieldset className="modal__radio-buttons">
@@ -46,6 +58,9 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             name="radioButton"
             type="radio"
             className="modal__radio-input"
+            value="hot"
+            checked={weather === "hot"}
+            onChange={(event) => setSelectedWeatherType(event.target.value)}
           />{" "}
           Hot
         </label>
@@ -55,6 +70,9 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             name="radioButton"
             type="radio"
             className="modal__radio-input"
+            value="hot"
+            checked={weather === "warm"}
+            onChange={(event) => setSelectedWeatherType(event.target.value)}
           />{" "}
           Warm
         </label>
@@ -64,6 +82,9 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             name="radioButton"
             type="radio"
             className="modal__radio-input"
+            value="hot"
+            checked={weather === "cold"}
+            onChange={(event) => setSelectedWeatherType(event.target.value)}
           />{" "}
           Cold
         </label>
