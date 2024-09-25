@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
   const [name, setName] = useState("");
-  console.log(name);
   const [imageUrl, setUrl] = useState("");
-  const [weather, setSelectedWeatherType] = useState("");
+  const [weather, setWeather] = useState("");
 
-  //need to ad values onchange to url and temp
+  const handleNameChange = (e) => {
+    console.log(e.target.value);
+    setName(e.target.value);
+  };
+
+  const handleUrlChange = (e) => {
+    console.log(e.target.value);
+    setUrl(e.target.value);
+  };
+
+  const handleWeatherChange = (e) => {
+    console.log(e.target.value);
+    setWeather(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     console.log(values);
@@ -19,8 +31,14 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
   function resetForm() {
     setName("");
     setUrl("");
-    setSelectedWeatherType("");
+    setWeather("");
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm
@@ -37,7 +55,8 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
           className="modal__input"
           id="name"
           placeholder="Name"
-          onChange={(event) => setName(event.target.value)}
+          value={name}
+          onChange={handleNameChange}
         />
       </label>
       <label htmlFor="imageUrl" className="modal__label">
@@ -47,7 +66,8 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
           className="modal__input"
           id="imageUrl"
           placeholder="Image URL"
-          onChange={(event) => setUrl(event.target.value)}
+          value={imageUrl}
+          onChange={handleUrlChange}
         />
       </label>
       <fieldset className="modal__radio-buttons">
@@ -60,8 +80,8 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             className="modal__radio-input"
             value="hot"
             checked={weather === "hot"}
-            onChange={(event) => setSelectedWeatherType(event.target.value)}
-          />{" "}
+            onChange={handleWeatherChange}
+          />
           Hot
         </label>
         <label htmlFor="warm" className="modal__label modal__label_type_radio">
@@ -72,8 +92,8 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             className="modal__radio-input"
             value="hot"
             checked={weather === "warm"}
-            onChange={(event) => setSelectedWeatherType(event.target.value)}
-          />{" "}
+            onChange={handleWeatherChange}
+          />
           Warm
         </label>
         <label htmlFor="cold" className="modal__label modal__label_type_radio">
@@ -84,8 +104,8 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             className="modal__radio-input"
             value="hot"
             checked={weather === "cold"}
-            onChange={(event) => setSelectedWeatherType(event.target.value)}
-          />{" "}
+            onChange={handleWeatherChange}
+          />
           Cold
         </label>
       </fieldset>

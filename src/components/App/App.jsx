@@ -5,7 +5,6 @@ import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
@@ -42,11 +41,23 @@ function App() {
     setActiveModal("");
   };
 
-  const onAddItem = (e) => {
-    e.preventDefault();
-    // submit new card to server/mock server
-    console.log(e);
-  };
+  /*const onAddItem = (item) => {
+    addClothingItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch((err) => console.log(err));
+  }; */
+
+  function onAddItem({ name, imageUrl, weather }) {
+    addClothingItem(name, imageUrl, weather)
+      .then((data) => {
+        setClothingItems((prev) => [data, ...prev]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  }
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");

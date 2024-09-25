@@ -15,8 +15,8 @@ export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
   result.temp = {
-    F: `${Math.round(data.main.temp)}ºF`,
-    C: `${Math.round(((data.main.temp - 32) * 5) / 9)}ºC`,
+    F: Math.round(data.main.temp),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
   };
   console.log(result.temp);
   result.type = getWeatherType(result.temp.F);

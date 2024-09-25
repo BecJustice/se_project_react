@@ -23,7 +23,7 @@ function addClothingItem({ name, imageUrl, weather }) {
       imageUrl,
       weather,
     }),
-  });
+  }).then(checkResponse);
 }
 
 function deleteClothingItem(item) {
@@ -32,7 +32,7 @@ function deleteClothingItem(item) {
     headers: {
       "Content-Type": "application/json",
     },
-  });
+  }).then(checkResponse);
 }
 
 export { getClothingItems, addClothingItem, deleteClothingItem };
