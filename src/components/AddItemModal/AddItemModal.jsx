@@ -22,7 +22,6 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
   };
 
   const handleSubmit = (e) => {
-    console.log(values);
     e.preventDefault();
     onAddItem({ name, imageUrl, weather });
     resetForm();

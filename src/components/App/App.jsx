@@ -33,6 +33,10 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleAddButtonClick = () => {
+    setActiveModal("add-garment");
+  };
+
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
@@ -51,7 +55,7 @@ function App() {
   }; */
 
   function onAddItem({ name, imageUrl, weather }) {
-    addClothingItem(name, imageUrl, weather)
+    addClothingItem({ name, imageUrl, weather })
       .then((data) => {
         setClothingItems((prev) => [data, ...prev]);
         closeActiveModal();
@@ -100,6 +104,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddButtonClick={handleAddButtonClick}
                 />
               }
             ></Route>
