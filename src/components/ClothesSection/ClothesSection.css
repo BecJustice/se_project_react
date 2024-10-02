@@ -1,0 +1,31 @@
+/*.clothes-section {
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
+.clothing-section__header {
+  display: flex;
+  gap: 20px;
+}
+
+.clothing-section__title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.clothing-section__add-btn {
+  padding: 0;
+  border: 0;
+  width: 116px;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.clothing-section__items {
+  /*flex-wrap: wrap;*/
+  padding: 0;
+}
