@@ -25,7 +25,9 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.clothing-section__items {
-  /*flex-wrap: wrap;*/
+.clothes-section__items {
+  display: flex;
   padding: 0;
+  flex-wrap: wrap;
+  gap: 21px;
 }

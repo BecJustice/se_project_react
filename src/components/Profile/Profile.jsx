@@ -8,7 +8,6 @@ function Profile({ onCardClick, clothingItems, handleAddButtonClick }) {
       <section className="profile__sidebar">
         <SideBar />
       </section>
-      <section className="profile__clothes-section"></section>
       <ClothesSection
         onCardClick={onCardClick}
         clothingItems={clothingItems}
