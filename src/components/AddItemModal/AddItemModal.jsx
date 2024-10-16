@@ -23,8 +23,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather });
-    resetForm();
+    onAddItem({ name, imageUrl, weather }, resetForm);
   };
 
   function resetForm() {

@@ -54,11 +54,12 @@ function App() {
       .catch((err) => console.log(err));
   }; */
 
-  function onAddItem({ name, imageUrl, weather }) {
+  function onAddItem({ name, imageUrl, weather }, resetForm) {
     addClothingItem({ name, imageUrl, weather })
       .then((data) => {
         setClothingItems((prev) => [data, ...prev]);
         closeActiveModal();
+        resetForm();
       })
       .catch(console.error);
   }
@@ -86,9 +87,11 @@ function App() {
         setWeatherData(filteredData);
       })
       .catch(console.error);
-    getClothingItems().then((data) => {
-      setClothingItems(data);
-    });
+    getClothingItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch(console.error);
   }, []);
 
   return (

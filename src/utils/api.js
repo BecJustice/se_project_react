@@ -35,4 +35,4 @@ function deleteClothingItem(item) {
   });
 }
 
-export { getClothingItems, addClothingItem, deleteClothingItem };
+export { getClothingItems, addClothingItem, deleteClothingItem, checkResponse };
